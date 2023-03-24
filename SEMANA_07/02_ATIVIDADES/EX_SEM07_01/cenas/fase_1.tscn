@@ -1,0 +1,168 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://cenas/Dialog.gd" type="Script" id=1]
+[ext_resource path="res://assets/iniciartrabbotp.png" type="Texture" id=2]
+[ext_resource path="res://assets/iniciartrabbot.png" type="Texture" id=3]
+[ext_resource path="res://cenas/fase_1.gd" type="Script" id=4]
+[ext_resource path="res://cenas/RichTextLabel.gd" type="Script" id=5]
+[ext_resource path="res://assets/buttons/setas.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://cenas/personagem.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 406, 103 ), Vector2( 406, 101 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "direitop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.2, 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="iniciar" type="TextureButton" parent="."]
+margin_left = 263.0
+margin_top = 195.0
+margin_right = 400.0
+margin_bottom = 271.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Dialog Box" type="ColorRect" parent="Control"]
+margin_left = 106.0
+margin_top = 190.0
+margin_right = 542.0
+margin_bottom = 311.0
+script = ExtResource( 1 )
+dialogPath = "res://dialog/dialog0.tres"
+
+[node name="Name" type="RichTextLabel" parent="Control/Dialog Box"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 106.0
+margin_bottom = 32.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+
+[node name="Text" type="RichTextLabel" parent="Control/Dialog Box"]
+margin_left = 9.0
+margin_top = 29.0
+margin_right = 424.0
+margin_bottom = 107.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+
+[node name="Indicator" type="Polygon2D" parent="Control/Dialog Box"]
+position = Vector2( 406, 102.666 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, -1, 15, -1, 8, 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Dialog Box/Indicator"]
+anims/anim = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="Control/Dialog Box"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 16.0
+margin_top = 18.0
+margin_right = 146.0
+margin_bottom = 58.0
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="RichTextLabel"]
+wait_time = 0.1
+
+[node name="controles" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="controles"]
+position = Vector2( 89, 308 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="controles/Sprite"]
+anims/direitop = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[node name="personagem" type="KinematicBody2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="personagem"]
+position = Vector2( 143, 75 )
+scale = Vector2( 0.53125, 0.53125 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem"]
+position = Vector2( 142, 75 )
+shape = SubResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="coletavel_1" type="Area2D" parent="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="Node2D/coletavel_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/coletavel_1"]
+
+[node name="coletavel_2" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="coletavel_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel_2"]
+
+[node name="coletavel_1" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="coletavel_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel_1"]
+
+[connection signal="pressed" from="iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="timeout" from="RichTextLabel/Timer" to="RichTextLabel" method="_on_Timer_timeout"]
