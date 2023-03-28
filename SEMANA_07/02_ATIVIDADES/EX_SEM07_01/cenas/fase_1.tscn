@@ -1,30 +1,165 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=46 format=2]
 
-[ext_resource path="res://cenas/Dialog.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Dialog.gd" type="Script" id=1]
 [ext_resource path="res://assets/iniciartrabbotp.png" type="Texture" id=2]
 [ext_resource path="res://assets/iniciartrabbot.png" type="Texture" id=3]
-[ext_resource path="res://cenas/fase_1.gd" type="Script" id=4]
-[ext_resource path="res://cenas/RichTextLabel.gd" type="Script" id=5]
+[ext_resource path="res://scripts/fase_1.gd" type="Script" id=4]
+[ext_resource path="res://scripts/RichTextLabel.gd" type="Script" id=5]
 [ext_resource path="res://assets/buttons/setas.png" type="Texture" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
-[ext_resource path="res://cenas/personagem.gd" type="Script" id=8]
+[ext_resource path="res://assets/Character_004.png" type="Texture" id=7]
+[ext_resource path="res://scripts/personagem.gd" type="Script" id=8]
+[ext_resource path="res://scripts/coletavel_1.gd" type="Script" id=9]
+[ext_resource path="res://assets/buttons/botfim.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/botfimp.png" type="Texture" id=11]
+[ext_resource path="res://assets/mochila1.png" type="Texture" id=12]
+[ext_resource path="res://assets/mochila2.png" type="Texture" id=13]
+[ext_resource path="res://assets/mochila3.png" type="Texture" id=14]
+[ext_resource path="res://assets/sala.png" type="Texture" id=15]
+[ext_resource path="res://assets/back.png" type="Texture" id=16]
 
-[sub_resource type="Animation" id=1]
-resource_name = "anim"
-length = 0.7
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 152, 10 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 10, 138.5 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 152, 26.5 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 21.5, 26 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10, 168 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 18, 37.5 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 10, 71.5 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 119, 11 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 10, 108 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 95, 20 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 146.5, 19.5 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 77.5, 29 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 23.0313, 8.96875 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 31.5, 41.5 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 17.5, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 16, 20.5 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 16, 27 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 19.25, 11.25 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 10, 26.5 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "baixo"
+length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 406, 103 ), Vector2( 406, 101 ) ]
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 2 ]
 }
+
+[sub_resource type="Animation" id=8]
+resource_name = "cima"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "ladod"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "ladoe"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=17]
+height = 4.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "direitop"
@@ -58,28 +193,308 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8.5, 8.5 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 406, 103 ), Vector2( 406, 101 ) ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="iniciar" type="TextureButton" parent="."]
-margin_left = 263.0
-margin_top = 195.0
-margin_right = 400.0
-margin_bottom = 271.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 2 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 322, 181.5 )
+scale = Vector2( 1.02222, 0.997253 )
+texture = ExtResource( 16 )
 
-[node name="Control" type="Control" parent="."]
+[node name="cena" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
+[node name="cenario" type="Sprite" parent="cena"]
+position = Vector2( 333, 183 )
+texture = ExtResource( 15 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="cena"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 192, 44 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 344, 149.5 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="cena/StaticBody2D"]
+light_mask = 4
+position = Vector2( 270, 254 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 72.5, 254 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 51, 172 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 74, 174.5 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 388, 187.5 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 500, 119 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 618, 230 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 149, 347 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 480.5, 348.5 )
+shape = SubResource( 23 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 533.5, 259 )
+shape = SubResource( 24 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 227, 84 )
+shape = SubResource( 25 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 336.031, 200 )
+shape = SubResource( 25 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 180.5, 158.5 )
+shape = SubResource( 26 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 139.5, 142.5 )
+shape = SubResource( 27 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 226, 179.5 )
+shape = SubResource( 28 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 257, 137 )
+shape = SubResource( 29 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 428, 141 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 227, 80.0313 )
+shape = SubResource( 25 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 427, 186 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 489, 144 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 486, 186 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="cena/StaticBody2D"]
+position = Vector2( 562, 169.5 )
+shape = SubResource( 31 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 291, 335 )
+scale = Vector2( 2.18229, 2.18229 )
+texture = ExtResource( 7 )
+hframes = 16
+vframes = 4
+frame = 1
+
+[node name="anim" type="AnimationPlayer" parent="Player"]
+autoplay = "idle"
+anims/baixo = SubResource( 7 )
+anims/cima = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/ladod = SubResource( 10 )
+anims/ladoe = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 290, 346 )
+shape = SubResource( 17 )
+
+[node name="iniciar" type="TextureButton" parent="."]
+margin_left = 233.0
+margin_top = 196.0
+margin_right = 370.0
+margin_bottom = 272.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+
+[node name="controles" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="controles"]
+position = Vector2( 414.04, 39 )
+scale = Vector2( 0.86, 0.86 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="controles/Sprite"]
+anims/direitop = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[node name="coletaveis" type="Node2D" parent="."]
+
+[node name="coletavel_1" type="Area2D" parent="coletaveis"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_1"]
+position = Vector2( 533.254, 147.111 )
+scale = Vector2( 0.094942, 0.094942 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_1"]
+position = Vector2( 533.254, 147.111 )
+shape = SubResource( 5 )
+
+[node name="coletavel_2" type="Area2D" parent="coletaveis"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_2"]
+position = Vector2( 290, 73 )
+scale = Vector2( 0.0938967, 0.0938967 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_2"]
+position = Vector2( 290, 74 )
+shape = SubResource( 5 )
+
+[node name="coletavel_3" type="Area2D" parent="coletaveis"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_3"]
+position = Vector2( 590, 213 )
+scale = Vector2( 0.0985285, 0.0985285 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_3"]
+position = Vector2( 589, 214 )
+shape = SubResource( 5 )
+
+[node name="coletavel_4" type="Area2D" parent="coletaveis"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_4"]
+position = Vector2( 72, 120 )
+scale = Vector2( 0.103383, 0.103383 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_4"]
+position = Vector2( 72, 121 )
+shape = SubResource( 5 )
+
+[node name="coletavel_5" type="Area2D" parent="coletaveis"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_5"]
+position = Vector2( 142, 289 )
+scale = Vector2( 0.077208, 0.077208 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_5"]
+position = Vector2( 141, 290 )
+shape = SubResource( 5 )
+
+[node name="coletavel_6" type="Area2D" parent="coletaveis"]
+
+[node name="Sprite" type="Sprite" parent="coletaveis/coletavel_6"]
+position = Vector2( 585, 310 )
+scale = Vector2( 0.0827489, 0.0878998 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletaveis/coletavel_6"]
+position = Vector2( 584, 309 )
+shape = SubResource( 5 )
+
+[node name="pont" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 495, 17 )
+scale = Vector2( 0.0917708, 0.0875325 )
+texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 520, 17 )
+scale = Vector2( 0.0940532, 0.0945748 )
+texture = ExtResource( 13 )
+
+[node name="Sprite3" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 546, 17 )
+scale = Vector2( 0.0939766, 0.0939766 )
+texture = ExtResource( 14 )
+
+[node name="Sprite4" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 569, 16 )
+scale = Vector2( 0.0987371, 0.0987371 )
+texture = ExtResource( 14 )
+
+[node name="Sprite5" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 591.587, 15.4736 )
+scale = Vector2( 0.0844936, 0.0983438 )
+texture = ExtResource( 13 )
+
+[node name="Sprite6" type="Sprite" parent="pont"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 616.659, 16.3222 )
+scale = Vector2( 0.0969224, 0.0969224 )
+texture = ExtResource( 12 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 9.0
+margin_top = -71.0
+margin_right = 49.0
+margin_bottom = -31.0
+
 [node name="Dialog Box" type="ColorRect" parent="Control"]
-margin_left = 106.0
-margin_top = 190.0
-margin_right = 542.0
-margin_bottom = 311.0
+margin_left = 90.0
+margin_top = 238.0
+margin_right = 526.0
+margin_bottom = 359.0
 script = ExtResource( 1 )
 dialogPath = "res://dialog/dialog0.tres"
 
@@ -118,51 +533,28 @@ script = ExtResource( 5 )
 [node name="Timer" type="Timer" parent="RichTextLabel"]
 wait_time = 0.1
 
-[node name="controles" type="Control" parent="."]
+[node name="botfim" type="TextureButton" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Sprite" type="Sprite" parent="controles"]
-position = Vector2( 89, 308 )
-texture = ExtResource( 6 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="controles/Sprite"]
-anims/direitop = SubResource( 2 )
-anims/idle = SubResource( 3 )
-
-[node name="personagem" type="KinematicBody2D" parent="."]
-script = ExtResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="personagem"]
-position = Vector2( 143, 75 )
-scale = Vector2( 0.53125, 0.53125 )
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem"]
-position = Vector2( 142, 75 )
-shape = SubResource( 4 )
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="coletavel_1" type="Area2D" parent="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="Node2D/coletavel_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/coletavel_1"]
-
-[node name="coletavel_2" type="Area2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="coletavel_2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel_2"]
-
-[node name="coletavel_1" type="Area2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="coletavel_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel_1"]
+margin_left = 544.0
+margin_top = 312.0
+margin_right = 624.0
+margin_bottom = 352.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+expand = true
 
 [connection signal="pressed" from="iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="body_entered" from="coletaveis/coletavel_1" to="." method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_1" to="coletaveis/coletavel_1" method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_2" to="." method="_on_coletavel_2_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_2" to="coletaveis/coletavel_2" method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_3" to="." method="_on_coletavel_3_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_3" to="coletaveis/coletavel_3" method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_4" to="." method="_on_coletavel_4_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_4" to="coletaveis/coletavel_4" method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_5" to="." method="_on_coletavel_5_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_5" to="coletaveis/coletavel_5" method="_on_coletavel_1_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_6" to="." method="_on_coletavel_6_body_entered"]
+[connection signal="body_entered" from="coletaveis/coletavel_6" to="coletaveis/coletavel_6" method="_on_coletavel_1_body_entered"]
 [connection signal="timeout" from="RichTextLabel/Timer" to="RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="pressed" from="botfim" to="." method="_on_botfim_pressed"]

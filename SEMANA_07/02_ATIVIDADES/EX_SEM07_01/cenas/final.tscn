@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cenas/Dialog Box.gd" type="Script" id=1]
+[ext_resource path="res://cenas/final.gd" type="Script" id=2]
+[ext_resource path="res://assets/Stacked pixel.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/intro.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 406, 103 ), Vector2( 406, 101 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 51
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 304, 200 )
+texture = ExtResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Dialog Box" type="ColorRect" parent="Control"]
+margin_left = 104.0
+margin_top = 128.0
+margin_right = 540.0
+margin_bottom = 249.0
+script = ExtResource( 1 )
+dialogPath = "res://dialog/dialog2.tres"
+
+[node name="Name" type="RichTextLabel" parent="Control/Dialog Box"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 106.0
+margin_bottom = 32.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+
+[node name="Text" type="RichTextLabel" parent="Control/Dialog Box"]
+margin_left = 9.0
+margin_top = 29.0
+margin_right = 424.0
+margin_bottom = 107.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+
+[node name="Indicator" type="Polygon2D" parent="Control/Dialog Box"]
+position = Vector2( 406, 102.666 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, -1, 15, -1, 8, 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Dialog Box/Indicator"]
+anims/anim = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="Control/Dialog Box"]
+
+[node name="replay" type="Button" parent="."]
+margin_left = 248.0
+margin_top = 264.0
+margin_right = 384.0
+margin_bottom = 312.0
+text = "REPLAY"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 56.0
+margin_right = 498.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 2 )
+text = "voce conseguiu!"
+
+[connection signal="pressed" from="replay" to="." method="_on_replay_pressed"]

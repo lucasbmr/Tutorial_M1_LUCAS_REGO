@@ -17,9 +17,15 @@ func _process(delta):
 		s+=1
 		ms = 0
 	
-	if s > 59:
-		m+=1
-		s = 0
+#	if s > 59:
+#		m+=1
+#		s = 0
+
+	if s >= 30:
+		get_tree().change_scene("res://cenas/gameover.tscn")
+		
+		
+		
 	
 	set_text(str(m)+":"+str(s)+":"+str(ms))
 	
